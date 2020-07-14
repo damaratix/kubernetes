@@ -1,0 +1,14 @@
+ apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+ kind: Ingress
+ metadata:
+   name: ingress-echo-server
+   annotations:
+ spec:
+   rules:
+   - host: echo-server.info
+     http:
+       paths:
+       - path: /
+         backend:
+           serviceName: echo-server
+           servicePort: 8080
